@@ -1,0 +1,33 @@
+type Book {
+    id: String
+    name: String!
+}
+
+type Author{
+    id: String
+    name: String!
+}
+
+type BookAuthor{
+    id: String
+    book: Book
+    author: Author
+}
+
+type Query{
+    authorsByBookId(id: String): [BookAuthor]
+    bookById(id: String): Book
+    getBooks: [Book]
+    authorById(id: String): Author!
+    getBookAuthorByBookId(bookId: String): [BookAuthor]
+}
+
+type Mutation {
+    createBook(name: String!): Book!
+    createBookAuthor(bookId: String!, authorName: String!): BookAuthor!
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}

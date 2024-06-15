@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: spring-boot-graphql
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+
