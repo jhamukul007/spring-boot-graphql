@@ -7,7 +7,10 @@ spring:
       enabled: true
       path: /graphiql
 ```
-
+### GraphQL Dashboard
+```agsl
+http://localhost:8080/graphiql?path=/graphql
+```
 ### GraphQL Queries
 
 1. Get Book By Id
