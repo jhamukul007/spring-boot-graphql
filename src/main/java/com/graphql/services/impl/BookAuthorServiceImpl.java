@@ -37,4 +37,9 @@ public class BookAuthorServiceImpl implements BookAuthorService {
     public List<BookAuthor> getBookAuthorByBookId(String bookId) {
         return bookAuthorRepository.getBookAuthorById(bookId);
     }
+
+    @Override
+    public List<BookAuthor> getAllBooks() {
+        return bookAuthorRepository.getBookAuthors();
+    }
 }

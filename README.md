@@ -75,5 +75,20 @@ query{
   }
 }
 ```
-
+6. Get All Book Author 
+```agsl
+query{
+  getAllBookAuthor{
+    id
+    book{
+      id
+      name
+    }
+    author{
+      id
+      name
+    }
+  }
+}
+```
 

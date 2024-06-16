@@ -25,4 +25,10 @@ public class BookAuthorController {
     public List<BookAuthor> getBookAuthorByBookId(@Argument String bookId) {
         return bookAuthorService.getBookAuthorByBookId(bookId);
     }
+
+    @QueryMapping
+    public List<BookAuthor> getAllBookAuthor() {
+        return bookAuthorService.getAllBooks();
+    }
+
 }
