@@ -1,4 +1,8 @@
 ### Enable GraphQL Dashboard
+Dependency 
+```agsl
+implementation 'org.springframework.boot:spring-boot-starter-graphql'
+```
 Add configuration in application.yaml
 ```agsl
 spring:
