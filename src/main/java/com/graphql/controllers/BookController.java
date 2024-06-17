@@ -22,11 +22,11 @@ public class BookController {
 
     @QueryMapping
     public Book bookById(@Argument String id) {
-        return bookService.getBookById(id);
+        return bookService.getBookById(id).orElse(null);
     }
 
     @MutationMapping
-    public Book createBook(@Argument String name){
+    public Book createBook(@Argument String name) {
         return bookService.createBook(name);
     }
 

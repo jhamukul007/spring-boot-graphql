@@ -7,11 +7,11 @@ import com.graphql.repos.BookAuthorRepository;
 import com.graphql.services.AuthorService;
 import com.graphql.services.BookAuthorService;
 import com.graphql.services.BookService;
-import com.graphql.utils.AppUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,24 +22,23 @@ public class BookAuthorServiceImpl implements BookAuthorService {
 
     @Override
     public BookAuthor createBookAuthor(String bookId, String authorName) {
-        Book book = bookService.getBookById(bookId);
-        if (book == null) throw new IllegalArgumentException("No Book Found");
-        Author author = authorService.getAuthorByName(authorName);
-        if (author == null) {
-            author = authorService.saveAuthor(authorName);
-        }
-        BookAuthor bookAuthor = new BookAuthor(AppUtils.randomStr(), book, author);
-        bookAuthorRepository.saveBookAuthor(bookAuthor);
+        Optional<Book> bookOP = bookService.getBookById(bookId);
+        Book book = bookOP.orElseThrow(() -> new IllegalArgumentException("No Book Found"));
+        Author author = authorService.getAuthorByName(authorName)
+                .orElse(authorService.saveAuthor(authorName));
+
+        BookAuthor bookAuthor = new BookAuthor(book, author);
+        bookAuthorRepository.save(bookAuthor);
         return bookAuthor;
     }
 
     @Override
     public List<BookAuthor> getBookAuthorByBookId(String bookId) {
-        return bookAuthorRepository.getBookAuthorById(bookId);
+        return bookAuthorRepository.findBookAuthorByBook_id(bookId);
     }
 
     @Override
     public List<BookAuthor> getAllBooks() {
-        return bookAuthorRepository.getBookAuthors();
+        return bookAuthorRepository.findAll();
     }
 }
