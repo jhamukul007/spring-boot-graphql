@@ -172,6 +172,10 @@ INSERT INTO book_author(id, book_id, author_id) VALUES ('f908fe8a-aa4a-4c9f-823e
 INSERT INTO book_author(id, book_id, author_id) VALUES ('3e809e52-bccf-4886-be37-fd5c569b0dc9','3e809e52-bccf-4886-be37-fd5c569b0dc9', '3e809e52-bccf-4886-be37-fd5c569b0dc9');
 INSERT INTO book_author(id, book_id, author_id) VALUES ('8c39e1f4-faed-498d-b6f4-3d831a390dfe','8c39e1f4-faed-498d-b6f4-3d831a390dfe', '8c39e1f4-faed-498d-b6f4-3d831a390dfe');
 ````
+### H2 database console 
 
+```agsl
+http://localhost:8080/h2-console
+```
 
 
