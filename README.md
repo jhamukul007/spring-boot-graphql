@@ -1,3 +1,5 @@
+## Spring Boot application with graphQL and H2 Database
+
 ### GraphQL Configurations and Query
 
 Dependency 
